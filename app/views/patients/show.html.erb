@@ -1,0 +1,26 @@
+<div><%= link_to "⬅ back", patients_path %></div>
+
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<h4>Patient Name</h4>
+<div class="form-wrapper"><%= render "form", patient: @patient %></div>
+
+<h4>Plan of Care</h4>
+<div class="form-wrapper"><%= render "/plan_of_cares/form", plan_of_care: @plan_of_care %></div>
+
+<h4>Goals</h4>
+<div class="form-wrapper"><%= render "/goals/form", goal: @goal %></div>
+
+<div>
+  <% if @goals.present? %>
+    <h5>Current Goals for this Patient</h5>
+    <div class="goal-wrapper">
+      <ul class="goal-wrapper">
+      <% @goals.each do |goal| %>
+        <li><%= render goal %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

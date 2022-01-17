@@ -1,0 +1,19 @@
+<%= form_with(model: patient) do |form| %>
+  <% if patient.errors.any? %>
+    <div style="color: red">
+      <strong><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</strong>
+      <% patient.errors.each do |error| %>
+        <div><%= error.full_message %></div>
+      <% end %>
+    </div>
+    <br/>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

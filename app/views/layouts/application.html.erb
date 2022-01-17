@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SerenityNow</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>SerenityNow - Therapy Notes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <%= stylesheet_link_tag "application", "serenity-now", "data-turbo-track": "reload" %>
+
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+<header>
+  <div><a href="/"><%= image_tag "serenity-now-logo.png", style: "width: 50px;" %></a></div>
+  <div><strong>SerenityNow</strong></div>
+  <div><i>Therapy Notes</i></div>
+</header>
+<main>
+  <%= yield %>
+</main>
+
+<footer>
+  <div>
+    <a href="/">home</a> |
+    <a href="/">all patients</a>
+  </div>
+</footer>
+</body>
 </html>

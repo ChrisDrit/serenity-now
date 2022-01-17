@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+    width: 100%;
+}
+
+.form-wrapper {
+    backcolor: inherit;
+}
+
+@media only screen and (min-width: 720px) {
+    .form-wrapper {
+        width: 60%;
+        padding: 5%;
+        background-color: #eee;
+    }
+}
+
+div.goal-wrapper {
+    background-color: inherit;
+}
+
+@media only screen and (min-width: 720px) {
+    div.goal-wrapper {
+        width: 60%;
+        padding: 5%;
+        border-left: 2px solid #0d47a1;
+        background-color: #eee;
+    }
+}
+
+ul.goal-wrapper {
+    margin-top: 0;
+    margin-left: 4%;
+    pagging-top: 0;
+    padding-left: 4%;
+}
+
+@media only screen and (min-width: 720px) {
+    ul.goal-wrapper {
+        margin-top: 0;
+        margin-left: 0;
+        pagging-top: 0;
+        padding-left: 0;
+    }
+}
