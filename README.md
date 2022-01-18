@@ -10,13 +10,13 @@ After reading through the [spec](SPEC.md), I came up with two different approach
 **Number One** 
 
 This gives the user the most flexibility but is the most difficult for us in
-assuring an always high quality experience for the user (they add new entities we
-are already parsing, etc..).
+assuring an always high quality experience for the user (example: they add new entities we
+aren't already parsing, etc..).
 
 **Number Two**
 
 This gives us the ability to provide the most consistent, highest quality experience
-for the user with the downside of putting the onus of doing something the user has
+for the user with the downside of putting the onus of learning something the user has
 done for years in a new way.
 
 **Approach Taken**
@@ -37,7 +37,7 @@ visit notes:
 ### Entities
 
 You can see how I broke it all down from the examples provided. There was a bit of 
-ambiguity with the spec and these examples, so I took my best "educated guess" for it.
+ambiguity with the spec and these examples, so I took my best "educated guess" with it.
 
 For example, based upon my understanding it appears that a **Session** may have many
 **Goals**, but each **Note** only contains 1 **Goal** (if any).
@@ -63,7 +63,7 @@ if the application hasn't been used recently - hence the slow initial start.
 
 ### Code
 
-* [Pull Request](https://github.com/ChrisDrit/serenity-now/pull/1) (feature work only)
+* [Pull Request](https://github.com/ChrisDrit/serenity-now/pull/1/files) (feature work only)
 * [Github Repo](https://github.com/ChrisDrit/serenity-now)
 
 ### Localhost
