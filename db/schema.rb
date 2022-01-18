@@ -22,21 +22,14 @@ ActiveRecord::Schema.define(version: 2022_01_17_014404) do
   end
 
   create_table "notes", force: :cascade do |t|
+    t.integer "goal_id"
     t.integer "session_id"
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_notes_on_goal_id"
     t.index ["session_id"], name: "index_notes_on_session_id"
-  end
-
-  create_table "outcomes", force: :cascade do |t|
-    t.integer "goal_id"
-    t.integer "note_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["goal_id"], name: "index_outcomes_on_goal_id"
-    t.index ["note_id"], name: "index_outcomes_on_note_id"
   end
 
   create_table "patients", force: :cascade do |t|

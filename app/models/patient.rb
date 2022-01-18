@@ -6,6 +6,14 @@ class Patient < ApplicationRecord
 
   after_create :create_plan_of_care
 
+  def goals?
+    plan_of_care.goals.present?
+  end
+
+  def session?
+    sessions.present?
+  end
+
   private
 
   def create_plan_of_care
