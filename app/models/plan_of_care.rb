@@ -3,5 +3,4 @@ class PlanOfCare < ApplicationRecord
   has_many :goals
 
   validates :description, presence: true
-
 end

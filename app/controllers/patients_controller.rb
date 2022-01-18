@@ -13,6 +13,10 @@ class PatientsController < ApplicationController
     @goals = @plan_of_care.goals.order(created_at: :desc)
   end
 
+  def new
+    @patient = Patient.new
+  end
+
   def create
     @patient = Patient.new(patient_params)
 

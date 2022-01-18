@@ -1,13 +1,14 @@
 class TrialsController < ApplicationController
+  before_action :set_instance_vars, only: %i[ create ]
 
   def create
-    @trial = Trial.new(trial_params.merge!(note_id: params[:note_id]))
+    @trial = Trial.new(trial_params.merge!(note_id: @note_id))
 
     respond_to do |format|
       if @trial.save
-        format.html { redirect_to patient_session_note_url(params[:patient_id], params[:session_id], params[:note_id]), notice: message_successfully_created }
+        format.html { redirect_to patient_session_note_url(@patient_id, @session_id, @note_id), notice: message_successfully_created }
       else
-        format.html { redirect_to patient_session_note_url(params[:patient_id], params[:session_id], params[:note_id]), alert: message_failured_to_create }
+        format.html { redirect_to patient_session_note_url(@patient_id, @session_id, @note_id), alert: message_failured_to_create }
       end
     end
   end
@@ -16,6 +17,12 @@ class TrialsController < ApplicationController
 
   def trial_params
     params.require(:trial).permit(:name)
+  end
+
+  def set_instance_vars
+    @note_id = params[:note_id]
+    @session_id = params[:session_id]
+    @patient_id = params[:patient_id]
   end
 
   def message_successfully_created

@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show ]
 
+  # TODO: fix this!
   def show
     @trial = Trial.new
     @patient_id = params[:patient_id]
