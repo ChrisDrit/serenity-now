@@ -1,0 +1,25 @@
+<%= form_with(model: trial) do |form| %>
+  <% if trial.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(trial.errors.count, "error") %> prohibited this trial from being saved:</h2>
+
+      <ul>
+        <% trial.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'patient_id', @patient_id %>
+  <%= hidden_field_tag 'session_id', @session_id %>
+  <%= hidden_field_tag 'note_id', @note_id %>
+
+  <div>
+    <%= form.text_field :name, placeholder: 'name' %>
+  </div>
+
+  <div>
+    <%= form.submit "Create New Trial" %>
+  </div>
+<% end %>

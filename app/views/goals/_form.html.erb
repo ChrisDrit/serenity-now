@@ -15,16 +15,14 @@
   <%= hidden_field_tag 'plan_of_care_id', @patient.plan_of_care.id %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "title" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, placeholder: "description" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create New Goal" %>
   </div>
 <% end %>

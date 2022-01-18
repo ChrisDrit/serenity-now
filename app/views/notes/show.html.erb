@@ -1,0 +1,34 @@
+<div>
+  <%= link_to "All Patients", patients_path %>
+  > <%= link_to "Patient & Goals", patient_path(params[:patient_id]) %>
+  > <%= link_to "Sessions", new_patient_session_path(params[:patient_id]) %>
+  > <%= link_to "Notes", patient_session_path(params[:patient_id], params[:session_id]) %>
+  > <b>Trials</b>
+</div>
+
+<div class="header-wrapper2">
+  <table>
+    <thead>
+    <tr>
+      <th class="small">Patient</th>
+      <th class="small">Session</th>
+      <th class="small">Note</th>
+      <th class="small">Goal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="small"><%= @patient.name %></td>
+      <td class="small"><%= @session.title %></td>
+      <td class="small"><%= @note.title %></td>
+      <td class="small"><%= @note.goal.title %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<%= render @note %>
+

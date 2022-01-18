@@ -1,26 +1,56 @@
-<div><%= link_to "⬅ back", patients_path %></div>
+<div>
+  <%= link_to "All Patients", patients_path %>
+  > <b>Patient & Goals</b>
+  > Sessions
+  > Notes
+  > Trials
+</div>
 
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
-<h4>Patient Name</h4>
-<div class="form-wrapper"><%= render "form", patient: @patient %></div>
+<div class="header-wrapper">
+  <h3 class="header-slim"><%= @patient.name %></h3>
+  <nav>
+    <%= link_to red_light_green_light(@goals) + " Start a Patient Session", new_patient_session_path(params[:id]) %>
+  </nav>
+</div>
 
-<h4>Plan of Care</h4>
-<div class="form-wrapper"><%= render "/plan_of_cares/form", plan_of_care: @plan_of_care %></div>
-
-<h4>Goals</h4>
+<h4>Create New Patient Goal</h4>
 <div class="form-wrapper"><%= render "/goals/form", goal: @goal %></div>
 
-<div>
-  <% if @goals.present? %>
-    <h5>Current Goals for this Patient</h5>
-    <div class="goal-wrapper">
-      <ul class="goal-wrapper">
+<br/><br/>
+
+<% if @goals.present? %>
+  <details>
+    <summary>Current Goals (<%= @goals.count %>)</summary>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
       <% @goals.each do |goal| %>
-        <li><%= render goal %></li>
+        <tr>
+          <td><%= goal.title %></td>
+          <td><%= goal.description %></td>
+        </tr>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+      </tbody>
+    </table>
+  </details>
+<% end %>
+
+<details>
+  <summary>Update Patient: <%= @patient.name %></summary>
+  <div class="form-wrapper-details"><%= render "form", patient: @patient %></div>
+</details>
+
+
+<details>
+  <summary>Update Patient Plan of Care</summary>
+  <div class="form-wrapper-details"><%= render "/plan_of_cares/form", plan_of_care: @plan_of_care %></div>
+</details>
+
