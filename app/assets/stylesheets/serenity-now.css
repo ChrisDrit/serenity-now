@@ -1,3 +1,5 @@
+/*General*/
+
 a {
     text-decoration: none;
 }
@@ -6,47 +8,245 @@ a:hover {
     text-decoration: underline;
 }
 
+/*Progress Bar*/
+
+div.progress {
+    margin-left: 0;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+@media only screen and (min-width: 720px) {
+    div.progress {
+        margin-left: -8%;
+    }
+
+}
+
+/*Images*/
+
+img.progress-1 {
+    width: 40%;
+}
+
+img.progress-2 {
+    width: 55%;
+}
+
+img.progress-3 {
+    width: 30%;
+}
+
+/*Tables*/
+
+table {
+    width: 100%;
+}
+
+table.progress {
+    margin: 0;
+    width: 100%;
+}
+
+th.border-hidden {
+    border-color: #f5f7ff;
+}
+
+td.border-hidden {
+    border-color: #f5f7ff;
+}
+
+@media only screen and (min-width: 720px) {
+    table.progress {
+        margin: 0;
+        width: 70%;
+    }
+}
+
+th.progress {
+    border-color: white;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 0;
+}
+
+td.progress {
+    font-size: 14px;
+    border-color: white;
+    text-align: center;
+    background-color: white;
+    padding-top: 0;
+}
+
+/*Fonts*/
+
+.medium {
+    font-size: 1.4rem;
+}
+
+.small {
+    font-size: 1rem;
+}
+
+/*Forms*/
+
+form {
+    width: 100%;
+    display: inline-block;
+}
+
 input {
     width: 100%;
 }
 
+select {
+    width: 100%;
+}
+
+label {
+    text-align: left;
+}
+
 .form-wrapper {
-    backcolor: inherit;
+    padding: 5%;
+    background-color: #f5f7ff;
 }
 
+
 @media only screen and (min-width: 720px) {
+    form {
+        width: 70%;
+        display: inline-block;
+    }
+
     .form-wrapper {
-        width: 60%;
         padding: 5%;
-        background-color: #eee;
+        background-color: #f5f7ff;
+        text-align: center;
+    }
+
+    .form-wrapper-slim {
+        padding: 1%;
+        background-color: #f5f7ff;
+    }
+
+    .form-wrapper-details {
+        width: 95%;
+        text-align: center;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
+    details {
     }
 }
 
-div.goal-wrapper {
-    background-color: inherit;
+/*Containers*/
+
+div.header-wrapper {
+    margin-top: 5%;
+    text-align: center;
+    background-color: #f5f7ff;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 2%;
+}
+
+div.show-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 1%;
+    padding-top: 4%;
+    background-color: #f5f7ff;
+    border-radius: 5px;
+}
+
+h3.header-slim {
+    margin: 0;
+    padding: 0;
+    margin-top: 2%;
 }
 
 @media only screen and (min-width: 720px) {
-    div.goal-wrapper {
-        width: 60%;
-        padding: 5%;
-        border-left: 2px solid #0d47a1;
-        background-color: #eee;
+
+    div.show-wrapper {
+        padding-left: 5%;
+        padding-bottom: 1%;
+        padding-top: 4%;
+        background-color: #f5f7ff;
+        border-radius: 5px;
+    }
+
+    div.show-wrapper-details {
+        padding-left: 5%;
+        padding-bottom: 1%;
+        padding-top: 2%;
+        background-color: #f5f7ff;
+        border-radius: 5px;
     }
 }
 
-ul.goal-wrapper {
+ul.show-wrapper {
     margin-top: 0;
     margin-left: 4%;
     pagging-top: 0;
     padding-left: 4%;
+    border-radius: 5px;
+}
+
+ol.show-wrapper-details {
+    margin-top: 0;
+    margin-left: 4%;
+    pagging-top: 0;
+    padding-left: 4%;
+    border-radius: 5px;
 }
 
 @media only screen and (min-width: 720px) {
-    ul.goal-wrapper {
+    ul.show-wrapper {
         margin-top: 0;
         margin-left: 0;
         pagging-top: 0;
         padding-left: 0;
+        border-radius: 5px;
     }
+
+    li.show-wrapper {
+        margin-bottom: 5%;
+        border-radius: 5px;
+    }
+
+    ol.show-wrapper-details {
+        margin-top: 0;
+        margin-left: 0;
+        pagging-top: 0;
+        padding-left: 0;
+        border-radius: 5px;
+    }
+
+    li.show-wrapper-details {
+        margin-bottom: 5%;
+        border-radius: 5px;
+    }
+}
+
+/*Mockups Spacing*/
+
+div.description-spacing {
+    margin-top: 1px;
+}
+
+div.score-spacing {
+    margin-top: 10px;
+}
+
+div.trial-spacing {
+    margin-top: 30px;
+}
+
+div.trial-totals-spacing {
+    width: 60%;
+    margin-top: 80px;
 }
