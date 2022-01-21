@@ -1,0 +1,38 @@
+<div>
+  <%= link_to "All Patients", patients_path %>
+  > <%= link_to "Patient & Goals", patient_path(params[:patient_id]) %>
+  > <%= link_to "Sessions", new_patient_session_path(params[:patient_id]) %>
+  > <b>Notes</b>
+  > Trials
+</div>
+
+<div class="header-wrapper">
+  <h3 style="text-align:center;"><%= @patient.name %></h3>
+  <p>Session: <%= @session.title %></p>
+</div>
+
+<h4>Create a New Note</h4>
+<div class="form-wrapper"><%= render "/notes/form", note: @note %></div>
+
+<% if @session.notes.present? %>
+  <br/><br/>
+  <details>
+    <summary>Continue with Existing Note (<%= @session.notes.count %>)</summary>
+    <table>
+      <thead>
+      <tr>
+        <th class="small">Title</th>
+        <th class="small">Goal</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @session.notes.order(created_at: :desc).each do |note| %>
+        <tr>
+          <td class="small"><%= link_to note.title, patient_session_note_path(@patient.id, @session.id, note.id) %></td>
+          <td class="small"><%= note.goal.title %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </details>
+<% end %>

@@ -1,0 +1,21 @@
+<div id="<%= dom_id note %>">
+  <h4>Trial</h4>
+  <div class="form-wrapper-slim2"><%= render "/trials/form", trial: @trial %></div>
+
+  <% if @note.trials.present? %>
+    <% @note.trials.order(created_at: :desc).each do |trial| %>
+      <div class="trial-spacing">&nbsp;<strong><%= trial.name %></strong></div>
+      <div class="score-spacing">
+        <%= image_tag 'mockup-score-1.png', style: 'width: 100%;' %>
+      </div>
+      <div class="description-spacing">
+        <%= image_tag random_trial_description_mockup, style: 'width: 62%;' %>
+      </div>
+    <% end %>
+
+    <div class="trial-totals-spacing">
+      <h3>🏆 Trial Results: <%= random_trial_totals %></h3>
+    </div>
+  <% end %>
+
+</div>

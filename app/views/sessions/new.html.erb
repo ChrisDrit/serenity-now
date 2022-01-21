@@ -1,0 +1,37 @@
+<div>
+  <%= link_to "All Patients", patients_path %>
+  > <%= link_to "Patient & Goals", patient_path(params[:patient_id]) %>
+  > <b>Sessions</b>
+  > Notes
+  > Trials
+</div>
+
+<div class="header-wrapper">
+  <h3 style="text-align:center;"><%= @patient.name %></h3>
+</div>
+
+<h4>Create & Start New Session</h4>
+<div class="form-wrapper"><%= render "form", session: @session %></div>
+
+<% if @patient.session? %>
+  <br/><br/>
+  <details>
+    <summary>Continue with Existing Session (<%= @patient.sessions.count %>)</summary>
+    <table>
+      <thead>
+      <tr>
+        <th class="small">Title</th>
+        <th class="small">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @patient.sessions.order(created_at: :desc).each do |session| %>
+        <tr>
+          <td class="small"><%= link_to session.title, patient_session_path(@patient, session) %></td>
+          <td class="small"><%= session.description %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </details>
+<% end %>

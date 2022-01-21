@@ -1,0 +1,27 @@
+<%= form_with(model: goal) do |form| %>
+  <% if goal.errors.any? %>
+    <div style="color: red">
+      <strong><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</strong>
+      <div>
+        <% goal.errors.each do |error| %>
+          <br/><%= error.full_message %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'patient_id', @patient.id %>
+  <%= hidden_field_tag 'plan_of_care_id', @patient.plan_of_care.id %>
+
+  <div>
+    <%= form.text_field :title, placeholder: "title" %>
+  </div>
+
+  <div>
+    <%= form.text_field :description, placeholder: "description" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create New Goal" %>
+  </div>
+<% end %>

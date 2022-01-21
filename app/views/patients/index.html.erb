@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<% if @patients.present? %>
+  <h4>All Patients</h4>
+  <table>
+    <thead>
+    <tr>
+      <th class="small">Patient</th>
+      <th class="small">Goals</th>
+      <th class="small">Sessions</th>
+      <th class="small">Notes</th>
+      <th class="small">Trials</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @patients.order(created_at: :desc).each do |patient| %>
+      <tr>
+        <td class="small"><%= link_to patient.name, patient %></td>
+        <td class="small"><%= patient.plan_of_care.goals.count %></td>
+        <td class="small"><%= patient.sessions.count %></td>
+        <td class="small"><%= patient.sessions.map(&:notes).flatten.count %></td>
+        <td class="small"><%= patient.sessions.map(&:notes).flatten.map(&:trials).flatten.count %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<h4>Add New Patient</h4>
+<div class="form-wrapper"><%= render "form", patient: @patient %></div>

@@ -1,0 +1,23 @@
+<%= form_with(model: session, url: patient_sessions_path(params[:patient_id])) do |form| %>
+  <% if session.errors.any? %>
+    <div style="color: red">
+      <strong><%= pluralize(session.errors.count, "error") %> prohibited this session from being saved:</strong>
+        <% session.errors.each do |error| %>
+          <div><%= error.full_message %></div>
+        <% end %>
+        <br/>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :title, placeholder: 'title' %>
+  </div>
+
+  <div>
+    <%= form.text_field :description, placeholder: 'description' %>
+  </div>
+
+  <div>
+    <%= form.submit "Start New Session" %>
+  </div>
+<% end %>

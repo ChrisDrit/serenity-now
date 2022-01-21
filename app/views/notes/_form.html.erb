@@ -1,0 +1,31 @@
+<%= form_with(model: note, url: patient_session_notes_url(params[:patient_id], params[:id])) do |form| %>
+  <% if note.errors.any? %>
+    <div style="color: red">
+      <strong><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</strong>
+      <% note.errors.each do |error| %>
+        <br/><%= error.full_message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'patient_id', @patient.id %>
+  <%= hidden_field_tag 'session_id', @session.id %>
+
+  <div>
+    <%= form.label "Goals:", style: "display: block" %>
+    <%= form.collection_select :goal_id, @goals, :id, :title %>
+  </div>
+
+  <p>
+    <div>
+      <%= form.text_field :title, placeholder: 'title' %>
+    </div>
+    <div>
+      <%= form.text_field :description, placeholder: 'description' %>
+    </div>
+  </p>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

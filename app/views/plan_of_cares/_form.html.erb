@@ -1,0 +1,19 @@
+<%= form_with(model: plan_of_care) do |form| %>
+  <% if plan_of_care.errors.any? %>
+    <div style="color: red">
+      <strong><%= pluralize(plan_of_care.errors.count, "error") %> prohibited this plan_of_care from being saved:</strong>
+      <% plan_of_care.errors.each do |error| %>
+        <strong><%= error.full_message %></strong>
+      <% end %>
+    </div>
+    <br/>
+  <% end %>
+
+  <div>
+    <%= form.text_field :description, placeholder: 'description' %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Plan of Care" %>
+  </div>
+<% end %>
